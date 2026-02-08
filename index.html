@@ -1,178 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For Poulomi ❤️</title>
+<meta charset="UTF-8">
+<title>For My Pookie 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(135deg,#ffd6e8,#fff0f5);
+  overflow-x:hidden;
+}
+section{
+  min-height:100vh;
+  padding:30px 20px;
+  text-align:center;
+}
+h1{color:#ff4d88;}
+p{color:#555;font-size:17px;}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: "Poppins", Arial, sans-serif;
-    }
+.card{
+  background:white;
+  padding:25px;
+  border-radius:25px;
+  max-width:420px;
+  margin:auto;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
 
-    body {
-      margin: 0;
-      height: 100vh;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
+.btn{
+  display:inline-block;
+  margin:10px;
+  padding:12px 22px;
+  border-radius:30px;
+  background:#ff4d88;
+  color:white;
+  text-decoration:none;
+}
 
-    .container {
-      background: rgba(255,255,255,0.95);
-      padding: 25px;
-      border-radius: 20px;
-      width: 90%;
-      max-width: 360px;
-      text-align: center;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-      position: relative;
-      z-index: 2;
-    }
+img.photo{
+  width:90%;
+  max-width:300px;
+  border-radius:20px;
+  margin:10px 0;
+}
 
-    h1 {
-      font-size: 22px;
-      color: #333;
-      margin-bottom: 10px;
-    }
+.note{
+  background:white;
+  padding:20px;
+  border-radius:20px;
+  margin:15px auto;
+  max-width:380px;
+}
 
-    p {
-      font-size: 15px;
-      color: #555;
-      line-height: 1.4;
-    }
+/* NO button */
+#no{
+  background:#ccc;
+  position:absolute;
+  border:none;
+  padding:12px 22px;
+  border-radius:30px;
+}
 
-    .name {
-      color: #ff4d6d;
-      font-weight: bold;
-    }
+/* hearts */
+.hearts span{
+  position:fixed;
+  bottom:-20px;
+  font-size:22px;
+  animation:float 6s linear infinite;
+}
 
-    .btn-box {
-      margin-top: 25px;
-      position: relative;
-      height: 60px;
-    }
+@keyframes float{
+  from{transform:translateY(0);opacity:1;}
+  to{transform:translateY(-120vh);opacity:0;}
+}
 
-    button {
-      padding: 10px 22px;
-      font-size: 16px;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-    }
+/* cats */
+.cat{
+  position:fixed;
+  bottom:10px;
+  font-size:30px;
+  animation:catMove 8s linear infinite;
+}
 
-    #yes {
-      background: #ff4d6d;
-      color: white;
-    }
-
-    #no {
-      background: #ccc;
-      color: #333;
-      position: absolute;
-    }
-
-    .result {
-      display: none;
-    }
-
-    .heart-big {
-      font-size: 40px;
-      animation: beat 1s infinite;
-    }
-
-    @keyframes beat {
-      0%,100% { transform: scale(1); }
-      50% { transform: scale(1.3); }
-    }
-
-    /* Floating hearts */
-    .heart {
-      position: absolute;
-      bottom: -20px;
-      color: #ff4d6d;
-      font-size: 18px;
-      animation: floatUp 6s linear infinite;
-      opacity: 0.7;
-    }
-
-    @keyframes floatUp {
-      from {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-      to {
-        transform: translateY(-120vh) scale(1.5);
-        opacity: 0;
-      }
-    }
-  </style>
+@keyframes catMove{
+  0%{left:-10%;}
+  100%{left:110%;}
+}
+</style>
 </head>
 <body>
 
-  <div class="container" id="questionBox">
-    <h1>Hey <span class="name">Poulomi Dey</span> ❤️</h1>
+<!-- HOME -->
+<section id="home">
+  <div class="card">
+    <h1>Poulomi Dey 🐱💖</h1>
     <p>
-      I don’t need a special day to love you.<br>
-      But today, I just want to ask you something from my heart…
+      You are rare.<br>
+      You are kind.<br>
+      You are unbelievably special.<br><br>
+      Will you be my forever pookie? 🥺💕
     </p>
 
-    <h1>Do you love me? 💕</h1>
+    <a class="btn" href="#photos">📸 Our Photos</a>
+    <a class="btn" href="#notes">💌 A Note For You</a>
 
-    <div class="btn-box">
-      <button id="yes">Yes 💖</button>
-      <button id="no">No 🙈</button>
-    </div>
+    <br><br>
+    <button class="btn" onclick="yes()">YES 💞</button>
+    <button id="no" onmouseover="moveNo()">NO 🙈</button>
   </div>
+</section>
 
-  <div class="container result" id="resultBox">
-    <h1>I knew it 🥹💖</h1>
-    <p>
-      Thank you for choosing me.<br>
-      I promise to always care, support, and love you.
-    </p>
-    <div class="heart-big">❤️</div>
-  </div>
+<!-- PHOTOS -->
+<section id="photos">
+  <h1>Our Real Memories 📸</h1>
+  <p>Every picture with you holds a thousand feelings.</p>
 
-  <script>
-    const yesBtn = document.getElementById("yes");
-    const noBtn = document.getElementById("no");
-    const questionBox = document.getElementById("questionBox");
-    const resultBox = document.getElementById("resultBox");
+  <!-- 🔴 REPLACE WITH YOUR REAL PHOTOS -->
+  <img class="photo" src="photo1.jpg">
+  <img class="photo" src="photo2.jpg">
+  <img class="photo" src="photo3.jpg">
 
-    yesBtn.onclick = () => {
-      questionBox.style.display = "none";
-      resultBox.style.display = "block";
-    };
+  <a class="btn" href="#home">⬆ Back</a>
+</section>
 
-    function moveNo() {
-      const x = Math.random() * 200 - 100;
-      const y = Math.random() * 100 - 50;
-      noBtn.style.transform = `translate(${x}px, ${y}px)`;
-    }
+<!-- NOTES -->
+<section id="notes">
+  <h1>How Incredible You Are 💌</h1>
 
-    noBtn.onmouseover = moveNo;
-    noBtn.ontouchstart = moveNo;
+  <div class="note">
+    You amaze me without even trying.  
+    The way you care, the way you smile,  
+    the way you exist — it
 
-    // Floating hearts generator
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.innerHTML = "❤️";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = Math.random() * 20 + 10 + "px";
-      heart.style.animationDuration = Math.random() * 3 + 4 + "s";
-      document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 7000);
-    }, 500);
-  </script>
-
-</body>
-
-</html>
